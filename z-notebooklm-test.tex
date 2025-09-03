@@ -1,0 +1,22 @@
+\newpage
+
+There exist two groups of order 21, up to isomorphism: one abelian and one nonabelian.
+\begin{enumerate}[$\bullet$]
+    \item 
+Let's examine the properties of a group $G$ with $|G| = 21 = 3\cdot7$. \item
+Since $7$ is a prime and $7 \mid 21$ but $7^2 \nmid 21$, there exists a Sylow $7$-subgroup $P$ of order $7$ in $G$. \item
+Because the number of Sylow $7$-subgroups, denoted as $n_7(G)$, must divide $3$ (the index of $P$ in $G$) and also satisfy $n_7(G) \equiv 1 \pmod{7}$, we can conclude that $n_7(G) = 1$. \item
+This implies that $P$ is the unique Sylow $7$-subgroup of $G$, and therefore it is normal in $G$. \item
+Since $P$ is of prime order, it is cyclic. Let $P = \langle a \rangle$ where $ord(a) = 7$. \item
+Similarly, there exists a Sylow $3$-subgroup $Q$ of order $3$, and we can write $Q = \langle b \rangle$ where $ord(b) = 3$. \item
+Since $P \triangleleft G$ and $G = PQ$, with $P\cap Q = \langle 1 \rangle$ (because the orders are coprime), we have a semidirect product $G = P \rtimes Q$. \item
+If $n_3(G)=1$, then $Q \triangleleft G$ and $G$ is abelian. In this case, since $|G| = |P||Q|$ and $P\cap Q = \langle 1 \rangle$, $G$ is a direct product, and hence isomorphic to the cyclic group of order 21: $G \cong P \times Q \cong Z_7 \times Z_3 \cong Z_{21}$. \item
+If $n_3(G) >1$, then $G$ is not abelian. Now, because $n_3(G)$ must divide $7$ (the index of $Q$ in $G$) and also be congruent to $1$ modulo $3$, we can conclude that $n_3(G) = 7$. \item
+Since $G$ is a semidirect product, the action of $Q$ on $P$ by conjugation completely determines the group structure. This action is given by a homomorphism $\phi: Q \rightarrow Aut(P)$. \item
+As $|Q|=3$ and $|Aut(P)|=|Aut(Z_7)|=6$, and there's only one element of order 3 in $Aut(Z_7)$ (which is $\eta_2$, the automorphism that maps $1$ to $2$), we know that $\phi$ maps $b$ to $\eta_2$.
+
+\end{enumerate}
+
+
+Therefore, the action is given by $b^{-1}ab = a^2$, which completely defines the nonabelian group of order 21. This group is isomorphic to the semidirect product $Z_7 \rtimes Z_3$, where the action is defined as above.
+In conclusion, there are exactly two groups of order 21 up to isomorphism: the cyclic group $Z_{21}$ and the nonabelian group $Z_7 \rtimes Z_3$ with the action $b^{-1}ab=a^2$.
