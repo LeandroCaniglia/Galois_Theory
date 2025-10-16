@@ -1,0 +1,87 @@
+\chapter{Cyclotomic Polynomials}
+
+\section{Definitions}
+
+Given $n\in\N$ the complex number $\omega$ is an \textsl{$n$th root of unity} if $\omega^n=1$. If ---in addition--- $\omega^m\ne1$ for $m<n$, $\omega$ is \textsl{primitive}.
+
+Let $U_n$ denote the set of all $n$th roots of unity. Then,
+\[
+    x^n-1=\prod_{\omega\in U_n}x-\omega.
+\]
+If $U_n^*$ is the set of all primitive $n$th roots of unity, then
+\[
+    U_n = \bigcup_{d\mid n}U_d^*.
+\]
+In consequence, the \textsl{$n$th cyclotomic} polynomial, defined by
+\[
+    \Phi_n(x) = \prod_{\omega\in U_n^*}x-\omega,
+\]
+satisfies
+\begin{equation}\tag{$\ast$}\label{eq:cyclotomic-factorization}
+    x^n-1 = \prod_{k\mid n}\Phi_k(x).
+\end{equation}
+
+\section{Basic Properties}
+
+\begin{lem}\label{lem:cyclotomic-are-integer}
+    The\/ $n$th cyclotomic polynomial\/ $\Phi_n$ is monic and has integer coefficients.
+\end{lem}
+
+\begin{proof}
+    By definition, $\Phi_n(x)$ is monic. To show that it has integer coefficients, we proceed by induction on\/ $n$.  
+    The base case $n=1$ is immediate since $\Phi_1(x)=x-1$.
+
+    Assume the result holds for all smaller values of\/ $n$.  
+    For $n>1$, we have
+    \begin{equation}\label{eq:cyclotomic-factor}
+        x^n-1 = \Bigg(
+                \prod_{\substack{k\mid n\\k\ne n}}
+            \Phi_k(x)\Bigg)\Phi_n(x)
+            =\phi(x)\Phi_n(x),
+    \end{equation}
+    where $\phi(x)$ is monic and has integer coefficients by the inductive hypothesis and~\eqref{eq:cyclotomic-factorization}. In particular, $\Phi_n(x)$ has rational coefficients.  
+    Hence, there exists\/ $c\in\Z$ such that\/ $c\Phi_n(x)\in\Z[x]$. Multiplying the previous equation by\/ $c$ gives
+    \[
+        c(x^n-1)=\phi(x)\,(c\Phi_n(x)).
+    \]
+    By the multiplicativity of the principal part [cf.~Lemma~\ref{lem:pp-is-multiplicative}], we obtain
+    \[
+        c=\pp(c\Phi_n(x)).
+    \]
+    The conclusion follows since\/ $f/\pp(f)\in\Z[x]$ for all\/ $f\in\Z[x]$.
+\end{proof}
+
+\begin{lem}\label{lem:divisibility-1}
+    Given\/ $d,m\in\N$, $x^d-1\mid x^n-1$ if, and only if, $d\mid n$.
+\end{lem}
+
+\begin{proof}
+    If\/ $d\mid n$, applying equation~\eqref{eq:cyclotomic-factorization} to both\/ $n$ and\/ $d$, and noting that\/ $m\mid n$ whenever\/ $m\mid d$, we deduce that\/ $x^d-1\mid x^n-1$.
+
+    Conversely, suppose\/ $x^d-1\mid x^n-1$.  
+    Write\/ $n=dm+r$ with\/ $0\le r<d$. Then
+    \[
+        x^n-1 = (x^{dm}-1)x^r + (x^r-1).
+    \]
+    By the direct implication we just proved,\/ $x^d-1\mid x^{dm}-1$. Hence\/ $x^d-1\mid x^r-1$, which can occur only if\/ $r=0$.
+\end{proof}
+
+\begin{lem}\label{lem:divisibility-2}
+    If\/ $d\mid n$, $d<n$, then\/ $\Phi_n(x)\mid (x^n-1)/(x^d-1)$ in\/ $\Z[x]$.
+\end{lem}
+
+\begin{proof}
+    By Lemma~\ref{lem:divisibility-1}, the quotient $(x^n-1)/(x^d-1)$ is an integer polynomial. Then, the conclusion is a direct consequence of \eqref{eq:cyclotomic-factor} since \eqref{eq:cyclotomic-factorization} implies that $x^d-1$ is a factor of $\phi(x)$ in $\Z[x]$.
+\end{proof}
+
+\begin{thm}
+    If $d\mid n$, $d<n$, then for any $q\in\Z$, we have
+    \[
+        q^d-1\mid q^n-1\quad\text{and}\quad
+        \Phi_n(q)\mid(q^n-1)/(q^d-1).
+    \]
+    \end{thm}
+
+\begin{proof}
+    This is a direct consequence of Lemma~\ref{lem:divisibility-2}.
+\end{proof}
